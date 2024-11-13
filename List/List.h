@@ -39,12 +39,16 @@ public:
 		}
 	}
 
-	bool exists(T const& value) const noexcept
-	{
-		//TODO Implement the exists method that checks if the element with a given value is in the list.
-		std::terminate();
+		bool exists(T const& value) const noexcept	{
+		Node* current = head;
+		while (current != nullptr) {
+			if (current->value == value) {
+				return true;
+			}
+			current = current->next;
+		}
+		return false;
 	}
-
 	void pushFront(T value)
 	{
 		Node* newNode = new Node(value);
